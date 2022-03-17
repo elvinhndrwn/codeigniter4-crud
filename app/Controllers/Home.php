@@ -21,10 +21,28 @@ class Home extends BaseController
     }
 
     public function form_create(){
-        return view('add');
+        $data = [
+            'validation' => \Config\Services::validation()
+        ];
+        return view('add', $data);
     }
 
     public function save_data(){
+
+        // Validation input
+        if(!$this->validate([
+            'name' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
+                    'required' => '{field} harus diisi.',
+                    'min_length' => '{field} minimal 3 karakter.',
+                ]
+            ]
+        ])){
+            $validation = \Config\Services::validation();
+            return redirect()->to('/create')->withInput()->with('validation', $validation);
+        }
+
         $this->carModel->save([
             'name' => $this->request->getVar('name'),
             'merk' => $this->request->getVar('merk'),
