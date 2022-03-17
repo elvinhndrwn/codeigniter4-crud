@@ -15,6 +15,7 @@
         <th scope="col">Name</th>
         <th scope="col">Merk</th>
         <th scope="col">Year</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +25,9 @@
         <td><?= $car["name"] ?></td>
         <td><?= $car["merk"] ?></td>
         <td><?= $car["year"] ?></td>
+        <td>
+          <a href="/detail/<?= $car['id'] ?>" class="btn btn-sm btn-info">Detail</a>
+        </td>
       </tr>
     <?php endforeach; ?>
   </tbody>

@@ -6,14 +6,14 @@
 	<form action="/save" method="post">
 		<?= csrf_field(); ?>
 		<div class="form-group">
-			<input type="text" class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : ''; ?>" placeholder="Nama Mobil" name="name" autofocus>
+			<input type="text" class="form-control <?= ($validation->hasError('name')) ? 'is-invalid' : ''; ?>" placeholder="Nama Mobil" name="name" autofocus value="<?= old('name') ?>">
 			<div class="invalid-feedback"><?= $validation->getError('name'); ?></div>
 		</div>
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Merk Mobil" name="merk">
+			<input type="text" class="form-control" placeholder="Merk Mobil" name="merk" value="<?= old('merk') ?>">
 		</div>
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Tahun Keluar" name="year">
+			<input type="text" class="form-control" placeholder="Tahun Keluar" name="year" value="<?= old('year') ?>">
 		</div>
 		<button type="submit" class="btn btn-sm btn-primary">Submit</button>
 	</form>

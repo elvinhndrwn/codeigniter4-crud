@@ -20,6 +20,16 @@ class Home extends BaseController
         return view('home', $data);
     }
 
+    public function car_detail($id)
+    {
+        $car = $this->carModel->getCar($id);
+
+        $data = [
+            "car" => $car
+        ];
+        return view('detail', $data);
+    }
+
     public function form_create(){
         $data = [
             'validation' => \Config\Services::validation()

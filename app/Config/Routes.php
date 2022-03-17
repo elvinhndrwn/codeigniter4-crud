@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/create', 'Home::form_create');
 $routes->post('/save', 'Home::save_data');
+$routes->get('/detail/(:any)', 'Home::car_detail/$1');
 
 /*
  * --------------------------------------------------------------------
