@@ -33,8 +33,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/create', 'Home::form_create');
+$routes->get('/edit/(:num)', 'Home::form_edit/$1');
 $routes->post('/save', 'Home::save_data');
+$routes->post('/update/(:num)', 'Home::update_data/$1');
 $routes->get('/detail/(:any)', 'Home::car_detail/$1');
+$routes->delete('/detail/(:num)', 'Home::car_delete/$1');
 
 /*
  * --------------------------------------------------------------------
