@@ -19,4 +19,20 @@ class Home extends BaseController
         ];
         return view('home', $data);
     }
+
+    public function form_create(){
+        return view('add');
+    }
+
+    public function save_data(){
+        $this->carModel->save([
+            'name' => $this->request->getVar('name'),
+            'merk' => $this->request->getVar('merk'),
+            'year' => $this->request->getVar('year')
+        ]);
+
+        session()->setFlashdata('alert', 'Save successfully!');
+        return redirect()->to('/');
+
+    }
 }

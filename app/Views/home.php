@@ -2,6 +2,12 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
+  <a href="/add" class="btn btn-sm btn-primary mb-2">Tambah Data</a>
+
+  <!-- Alert -->
+  <?= $this->include('layout/alert'); ?>
+  <!-- End of Alert -->
+
   <table class="table">
     <thead>
       <tr>
